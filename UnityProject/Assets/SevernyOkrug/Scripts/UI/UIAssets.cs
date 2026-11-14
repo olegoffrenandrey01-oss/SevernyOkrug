@@ -223,9 +223,28 @@ namespace Severny
         /// <summary>White UI glyph (tint with Image.color): "close", "check", "chev_r", "lock", "rifle", "med", ... (see ui_glyphs.txt).</summary>
         public static Sprite Glyph(string name) { if (_glyphs == null) _glyphs = Load("ui_glyphs"); return From(_glyphs, name); }
 
+        static readonly Dictionary<string, Sprite> _v14Icons = new Dictionary<string, Sprite>();
+        static Sprite V14Icon(string id, bool emptyVariant)
+        {
+            if (V14WeaponArt.ModelTag(id) == null) return null;
+            string key = id + (emptyVariant ? "@empty" : "");
+            if (_v14Icons.TryGetValue(key, out var sprite)) return sprite;
+            var texture = Resources.Load<Texture2D>("SevernyUI/V14/" + key);
+            if (texture != null)
+            {
+                sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                    new Vector2(0.5f, 0.5f), 100f, 0, SpriteMeshType.FullRect);
+                sprite.name = key;
+            }
+            _v14Icons[key] = sprite;
+            return sprite;
+        }
+
         /// <summary>Pre-rendered 3D item icon (128 px per inventory cell). emptyVariant: "av74@empty" (no magazine) when available.</summary>
         public static Sprite ItemIcon(string id, bool emptyVariant = false)
         {
+            var custom = V14Icon(id, emptyVariant) ?? (emptyVariant ? V14Icon(id, false) : null);
+            if (custom != null) return custom;
             if (_icons == null) _icons = Load("item_icons");
             if (emptyVariant) { var e = From(_icons, id + "@empty"); if (e != null) return e; }
             return From(_icons, id);

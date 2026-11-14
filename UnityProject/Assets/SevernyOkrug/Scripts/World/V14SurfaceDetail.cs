@@ -1,4 +1,4 @@
-// Surface wear across the whole loaded map. Uses the project's existing licensed textures and shader variants.
+// Surface wear across the whole loaded map. Uses original v14 wear maps and existing shader variants.
 // No colliders or random solid obstacles; geometry is copied only from existing visible opaque surfaces.
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +29,9 @@ namespace Severny
             var rust = detail.LoadMaterial("M_RustDrip", new Color(0.65f, 0.5f, 0.4f, cfg.wearOpacity * 0.75f));
             if (grime == null) { Destroy(go); yield break; }
             if (rust == null) rust = grime;
+            var asphalt = detail.LoadWear(grime, "asphalt", cfg.wearOpacity);
+            var concrete = detail.LoadWear(grime, "concrete", cfg.wearOpacity);
+            var paintedMetal = detail.LoadWear(rust, "metal", cfg.wearOpacity);
             var batches = new Dictionary<string, Batch>();
             int budget = Mathf.RoundToInt(Mathf.Clamp(cfg.maxSurfacePatches, 0, 4000) * (GfxQuality.Level == 1 ? 0.4f : 1f));
             int added = 0, scanned = 0, eligible = 0;
@@ -72,15 +75,15 @@ namespace Severny
             foreach (var face in selected)
             {
                 var center = (face.a + face.b + face.c) / 3f;
-                string key = (face.metal ? "metal" : "grime") + ":" + Mathf.FloorToInt(center.x / 32f) + ":" + Mathf.FloorToInt(center.y / 16f) + ":" + Mathf.FloorToInt(center.z / 32f);
-                if (!batches.TryGetValue(key, out var batch)) { batch = new Batch { mat = face.metal ? rust : grime }; batches.Add(key, batch); }
+                string key = (face.metal ? "metal" : face.ground ? "asphalt" : "concrete") + ":" + Mathf.FloorToInt(center.x / 32f) + ":" + Mathf.FloorToInt(center.y / 16f) + ":" + Mathf.FloorToInt(center.z / 32f);
+                if (!batches.TryGetValue(key, out var batch)) { batch = new Batch { mat = face.metal ? paintedMetal : face.ground ? asphalt : concrete }; batches.Add(key, batch); }
                 int first = batch.v.Count;
                 foreach (var p in new[] { face.a, face.b, face.c })
                 {
                     batch.v.Add(go.transform.InverseTransformPoint(p + face.normal * 0.006f));
                     batch.n.Add(go.transform.InverseTransformDirection(face.normal).normalized);
                     var uv = face.ground ? new Vector2(p.x, p.z) : Mathf.Abs(face.normal.x) > Mathf.Abs(face.normal.z) ? new Vector2(p.z, p.y) : new Vector2(p.x, p.y);
-                    batch.uv.Add(uv / (face.metal ? 4f : face.ground ? 14f : 9f));
+                    batch.uv.Add(uv / (face.metal ? 4f : face.ground ? 8f : 6f));
                 }
                 batch.indices.Add(first); batch.indices.Add(first + 1); batch.indices.Add(first + 2);
                 added++;
@@ -100,6 +103,21 @@ namespace Severny
             }
             Debug.Log("[Severny] v14: слой износа всей карты — треугольников " + added + ", пространственных групп " + batches.Count);
         }
+        Material LoadWear(Material fallback, string kind, float opacity)
+        {
+            var texture = Resources.Load<Texture2D>("V14Art/wear_" + kind);
+            if (texture == null) return fallback;
+            var mat = new Material(fallback) { name = "v14_" + kind, hideFlags = HideFlags.DontSave };
+            // Preserve the existing transparent URP variant, replace all authored surface maps together.
+            mat.SetTexture("_BaseMap", texture); mat.SetTexture("_MainTex", texture);
+            mat.SetColor("_BaseColor", new Color(1, 1, 1, opacity));
+            if (mat.HasProperty("_Color")) mat.SetColor("_Color", new Color(1, 1, 1, opacity));
+            mat.DisableKeyword("_NORMALMAP"); mat.DisableKeyword("_METALLICSPECGLOSSMAP"); mat.DisableKeyword("_OCCLUSIONMAP");
+            mat.SetTexture("_BumpMap", null); mat.SetTexture("_MetallicGlossMap", null); mat.SetTexture("_OcclusionMap", null);
+            mat.SetFloat("_Smoothness", 0.1f); mat.SetFloat("_Metallic", 0f);
+            _materials.Add(mat); return mat;
+        }
+
         Material LoadMaterial(string name, Color tint)
         {
             Material src = Resources.Load<Material>("PolygonKit/Materials/" + name);

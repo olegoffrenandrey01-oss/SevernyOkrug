@@ -74,9 +74,11 @@ namespace Severny
         /// <summary>Blender-made model (Resources/SevernyModels/W_TAG) with anchors muzzle / sight / Mag / Bolt.</summary>
         static WeaponView TryDetailed(ItemDef def, Transform parent)
         {
-            string tag = GripPose.TagFor(def);
+            string modelTag = V14WeaponArt.ModelTag(def.id);
+            // New weapons share the existing AV74 arm rig and reload motions. Dedicated poses are still pending.
+            string tag = modelTag != null ? "AV74" : GripPose.TagFor(def);
             if (tag == null) return null;
-            var g = ModelLib.Spawn("W_" + tag, parent);
+            var g = ModelLib.Spawn("W_" + (modelTag ?? tag), parent);
             if (g == null) return null;
             var t = g.transform;
             Transform mz = ModelLib.FindDeep(t, "muzzle"), sight = ModelLib.FindDeep(t, "sight");

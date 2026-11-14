@@ -37,12 +37,22 @@ namespace Severny
             return g;
         }
 
+        // Keep the original generated catalog intact; editor remapping and runtime use the same additions.
+        public static IEnumerable<ModelSpecs.Mat> MaterialSpecs
+        {
+            get
+            {
+                foreach (var spec in ModelSpecs.Mats) yield return spec;
+                foreach (var spec in V14WeaponArt.Materials) yield return spec;
+            }
+        }
+
         public static bool TrySpec(string key, out ModelSpecs.Mat s)
         {
             if (_specs == null)
             {
                 _specs = new Dictionary<string, ModelSpecs.Mat>();
-                foreach (var m in ModelSpecs.Mats) _specs[m.key] = m;
+                foreach (var m in MaterialSpecs) _specs[m.key] = m;
             }
             return _specs.TryGetValue(key, out s);
         }

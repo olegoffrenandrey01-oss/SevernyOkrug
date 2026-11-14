@@ -123,7 +123,7 @@ namespace Severny.EditorTools
             if (!AssetDatabase.IsValidFolder(MatDir)) AssetDatabase.CreateFolder(Dir, "Materials");
             int changed = 0;
             var mats = new Dictionary<string, Material>();
-            foreach (var s in ModelSpecs.Mats)
+            foreach (var s in ModelLib.MaterialSpecs)
             {
                 string path = MatDir + "/M_" + s.key + ".mat";
                 var m = AssetDatabase.LoadAssetAtPath<Material>(path);
