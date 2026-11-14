@@ -1,0 +1,10 @@
+/UnityProject/[Ll]ibrary/
+/UnityProject/[Tt]emp/
+/UnityProject/[Ll]ogs/
+/UnityProject/[Oo]bj/
+/UnityProject/[Bb]uilds/
+/UnityProject/UserSettings/
+*.csproj
+*.sln
+*.slnx
+*.unitypackage

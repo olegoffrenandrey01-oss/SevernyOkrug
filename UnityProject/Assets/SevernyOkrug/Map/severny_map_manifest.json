@@ -1,0 +1,98 @@
+{
+ "version": "v10",
+ "source": "SEVERNY_OKRUG_LA_cars_signs_detailed.blend / EXPORT",
+ "units": "meters",
+ "axes": "FBX Y-up, -Z forward, transforms applied (Unity: x=-x_b, y=z_b, z=-y_b)",
+ "files": [
+  {
+   "file": "SEV_Backdrop_backdrop.fbx",
+   "group": "backdrop",
+   "chunk": "",
+   "collider": "none",
+   "backdrop": true,
+   "tris": 202525,
+   "objects": 20
+  },
+  {
+   "file": "SEV_Buildings_buildings.fbx",
+   "group": "buildings",
+   "chunk": "",
+   "collider": "mesh",
+   "backdrop": false,
+   "tris": 2099066,
+   "objects": 192
+  },
+  {
+   "file": "SEV_Cars_cars.fbx",
+   "group": "cars",
+   "chunk": "",
+   "collider": "mesh",
+   "backdrop": false,
+   "tris": 1713622,
+   "objects": 763
+  },
+  {
+   "file": "SEV_Foliage_foliage.fbx",
+   "group": "foliage",
+   "chunk": "",
+   "collider": "none",
+   "backdrop": false,
+   "tris": 514246,
+   "objects": 13
+  },
+  {
+   "file": "SEV_Ground_ground.fbx",
+   "group": "ground",
+   "chunk": "",
+   "collider": "mesh",
+   "backdrop": false,
+   "tris": 16427,
+   "objects": 1
+  },
+  {
+   "file": "SEV_Interiors_interiors.fbx",
+   "group": "interiors",
+   "chunk": "",
+   "collider": "mesh",
+   "backdrop": false,
+   "tris": 248696,
+   "objects": 140
+  },
+  {
+   "file": "SEV_Props_props.fbx",
+   "group": "props",
+   "chunk": "",
+   "collider": "mesh",
+   "backdrop": false,
+   "tris": 1194646,
+   "objects": 24
+  },
+  {
+   "file": "SEV_Roads_roads.fbx",
+   "group": "roads",
+   "chunk": "",
+   "collider": "mesh",
+   "backdrop": false,
+   "tris": 44052,
+   "objects": 9
+  },
+  {
+   "file": "SEV_Signs_signs.fbx",
+   "group": "signs",
+   "chunk": "",
+   "collider": "none",
+   "backdrop": false,
+   "tris": 715924,
+   "objects": 121
+  },
+  {
+   "file": "SEV_Trunks_trees.fbx",
+   "group": "trees",
+   "chunk": "",
+   "collider": "mesh",
+   "backdrop": false,
+   "tris": 349216,
+   "objects": 13
+  }
+ ]
+}

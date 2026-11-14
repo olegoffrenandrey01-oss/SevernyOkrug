@@ -1,0 +1,657 @@
+{
+ "version": 13,
+ "skies": [
+  {
+   "name": "Morning",
+   "sunU": 0.63739,
+   "sunEl": 18.0,
+   "skyMul": 1.0,
+   "band": [
+    0.4097,
+    0.4807,
+    0.5094
+   ],
+   "zen": [
+    0.1421,
+    0.1583,
+    0.222
+   ],
+   "gnd": [
+    0.181,
+    0.218,
+    0.229
+   ]
+  },
+  {
+   "name": "Day",
+   "sunU": 0.59515,
+   "sunEl": 45.02,
+   "skyMul": 1.1,
+   "band": [
+    0.4332,
+    0.4694,
+    0.5797
+   ],
+   "zen": [
+    0.4478,
+    0.4903,
+    0.6499
+   ],
+   "gnd": [
+    0.1926,
+    0.2108,
+    0.2581
+   ]
+  },
+  {
+   "name": "Evening",
+   "sunU": 0.59894,
+   "sunEl": 13.16,
+   "skyMul": 1.0,
+   "band": [
+    0.5263,
+    0.4605,
+    0.3827
+   ],
+   "zen": [
+    0.3711,
+    0.3872,
+    0.4274
+   ],
+   "gnd": [
+    0.2417,
+    0.2066,
+    0.17
+   ]
+  },
+  {
+   "name": "Overcast",
+   "sunU": 0.59894,
+   "sunEl": 23.4,
+   "skyMul": 1.3,
+   "band": [
+    0.4463,
+    0.4704,
+    0.529
+   ],
+   "zen": [
+    0.7024,
+    0.7844,
+    0.9752
+   ],
+   "gnd": [
+    0.1976,
+    0.2113,
+    0.237
+   ]
+  }
+ ],
+ "looks": [
+  {
+   "name": "Morning",
+   "sky": "Morning",
+   "sunAz": 55.0,
+   "sunEl": 18.0,
+   "sunLum": 2.07,
+   "sunMul": 1.0,
+   "sunWhite": 0.0,
+   "shadow": 1.0,
+   "wDim": 0.9,
+   "sunColor": [
+    1.0,
+    0.97,
+    0.94
+   ],
+   "ambUp": 0.39,
+   "ambHor": 0.377,
+   "ambDown": 0.104,
+   "tintUp": [
+    0.9456,
+    0.9964,
+    1.1961
+   ],
+   "tintHor": [
+    0.969,
+    1.007,
+    1.0223
+   ],
+   "tintDown": [
+    1.05,
+    1.0,
+    0.92
+   ],
+   "fog": 0.0042,
+   "haze": 0.75,
+   "hazeE0": 0.0,
+   "hazeE1": 8.0,
+   "skyBright": 1.0,
+   "refl": 1.0,
+   "exposure": -0.35,
+   "contrast": 5.0,
+   "saturation": -30.0,
+   "temperature": 2.0,
+   "tint": 0.0,
+   "bloom": 0.4,
+   "threshold": 1.1,
+   "scatter": 0.7,
+   "dirt": 1.0,
+   "vignette": 0.2,
+   "grain": 0.0,
+   "flare": 1.0,
+   "sslf": 0.08,
+   "chromAb": 0.0,
+   "ssao": 1.0,
+   "filter": [
+    1,
+    1,
+    1
+   ],
+   "shadows": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "midtones": [
+    1.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "highlights": [
+    1.0,
+    1.0,
+    1.0,
+    -0.25
+   ]
+  },
+  {
+   "name": "Day",
+   "sky": "Day",
+   "sunAz": 150.0,
+   "sunEl": 45.0,
+   "sunLum": 1.8,
+   "sunMul": 1.0,
+   "sunWhite": 0.0,
+   "shadow": 1.0,
+   "wDim": 1.0,
+   "sunColor": [
+    1.0,
+    0.98,
+    0.95
+   ],
+   "ambUp": 0.47,
+   "ambHor": 0.33,
+   "ambDown": 0.14,
+   "tintUp": [
+    0.9544,
+    0.9975,
+    1.1594
+   ],
+   "tintHor": [
+    0.9806,
+    0.9999,
+    1.0586
+   ],
+   "tintDown": [
+    1.05,
+    1.0,
+    0.92
+   ],
+   "fog": 0.0032,
+   "haze": 0.6,
+   "hazeE0": 0.0,
+   "hazeE1": 6.0,
+   "skyBright": 1.35,
+   "refl": 1.0,
+   "exposure": 0.3,
+   "contrast": 14.0,
+   "saturation": -40.0,
+   "temperature": 0.0,
+   "tint": 0.0,
+   "bloom": 0.3,
+   "threshold": 1.1,
+   "scatter": 0.7,
+   "dirt": 1.0,
+   "vignette": 0.2,
+   "grain": 0.0,
+   "flare": 1.0,
+   "sslf": 0.05,
+   "chromAb": 0.0,
+   "ssao": 1.0,
+   "filter": [
+    1,
+    1,
+    1
+   ],
+   "shadows": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "midtones": [
+    1.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "highlights": [
+    1,
+    1,
+    1,
+    0
+   ]
+  },
+  {
+   "name": "Evening",
+   "sky": "Evening",
+   "sunAz": 290.0,
+   "sunEl": 13.2,
+   "sunLum": 2.05,
+   "sunMul": 1.0,
+   "sunWhite": 0.0,
+   "shadow": 1.0,
+   "wDim": 0.75,
+   "sunColor": [
+    1.0,
+    0.84,
+    0.66
+   ],
+   "ambUp": 0.39,
+   "ambHor": 0.377,
+   "ambDown": 0.09,
+   "tintUp": [
+    0.9799,
+    1.0007,
+    1.0527
+   ],
+   "tintHor": [
+    1.0306,
+    0.9955,
+    0.9541
+   ],
+   "tintDown": [
+    1.1,
+    1.0,
+    0.86
+   ],
+   "fog": 0.0038,
+   "haze": 0.75,
+   "hazeE0": 0.0,
+   "hazeE1": 9.0,
+   "skyBright": 0.95,
+   "refl": 1.0,
+   "exposure": 1.0,
+   "contrast": 15.0,
+   "saturation": -35.0,
+   "temperature": -2.0,
+   "tint": 0.0,
+   "bloom": 0.4,
+   "threshold": 1.1,
+   "scatter": 0.7,
+   "dirt": 1.0,
+   "vignette": 0.2,
+   "grain": 0.0,
+   "flare": 1.0,
+   "sslf": 0.1,
+   "chromAb": 0.0,
+   "ssao": 1.0,
+   "filter": [
+    1,
+    1,
+    1
+   ],
+   "shadows": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "midtones": [
+    1.02,
+    1.0,
+    0.98,
+    0.0
+   ],
+   "highlights": [
+    1,
+    1,
+    1,
+    0
+   ]
+  },
+  {
+   "name": "Precip",
+   "sky": "Overcast",
+   "sunAz": 0.0,
+   "sunEl": 30.0,
+   "sunLum": 2.0,
+   "sunMul": 0.3,
+   "sunWhite": 0.5,
+   "shadow": 0.55,
+   "wDim": 1.0,
+   "sunColor": [
+    1,
+    1,
+    1
+   ],
+   "ambUp": 0.42,
+   "ambHor": 0.36,
+   "ambDown": 0.12,
+   "tintUp": [
+    0.9498,
+    1.0023,
+    1.1245
+   ],
+   "tintHor": [
+    0.9876,
+    1.0005,
+    1.0317
+   ],
+   "tintDown": [
+    1.02,
+    1.0,
+    0.96
+   ],
+   "fog": 0.0028,
+   "haze": 0.95,
+   "hazeE0": 0.0,
+   "hazeE1": 18.0,
+   "skyBright": 0.85,
+   "refl": 1.0,
+   "exposure": 0.35,
+   "contrast": 9.0,
+   "saturation": -30.0,
+   "temperature": 0.0,
+   "tint": 0.0,
+   "bloom": 0.25,
+   "threshold": 1.1,
+   "scatter": 0.7,
+   "dirt": 1.0,
+   "vignette": 0.22,
+   "grain": 0.0,
+   "flare": 0.0,
+   "sslf": 0.0,
+   "chromAb": 0.0,
+   "ssao": 1.0,
+   "filter": [
+    1,
+    1,
+    1
+   ],
+   "shadows": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "midtones": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "highlights": [
+    1,
+    1,
+    1,
+    0
+   ]
+  },
+  {
+   "name": "Fog",
+   "sky": "Overcast",
+   "sunAz": 0.0,
+   "sunEl": 30.0,
+   "sunLum": 2.0,
+   "sunMul": 0.45,
+   "sunWhite": 0.5,
+   "shadow": 0.65,
+   "wDim": 1.0,
+   "sunColor": [
+    1,
+    1,
+    1
+   ],
+   "ambUp": 0.4,
+   "ambHor": 0.36,
+   "ambDown": 0.12,
+   "tintUp": [
+    0.9498,
+    1.0023,
+    1.1245
+   ],
+   "tintHor": [
+    0.9876,
+    1.0005,
+    1.0317
+   ],
+   "tintDown": [
+    1.02,
+    1.0,
+    0.96
+   ],
+   "fog": 0.0065,
+   "haze": 1.0,
+   "hazeE0": 4.0,
+   "hazeE1": 36.0,
+   "skyBright": 0.9,
+   "refl": 1.0,
+   "exposure": 0.2,
+   "contrast": 7.0,
+   "saturation": -30.0,
+   "temperature": 1.0,
+   "tint": 0.0,
+   "bloom": 0.3,
+   "threshold": 1.1,
+   "scatter": 0.7,
+   "dirt": 1.0,
+   "vignette": 0.2,
+   "grain": 0.0,
+   "flare": 0.0,
+   "sslf": 0.0,
+   "chromAb": 0.0,
+   "ssao": 1.0,
+   "filter": [
+    1,
+    1,
+    1
+   ],
+   "shadows": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "midtones": [
+    1,
+    1,
+    1,
+    0
+   ],
+   "highlights": [
+    1,
+    1,
+    1,
+    0
+   ]
+  }
+ ],
+ "wet": [
+  {
+   "name": "AfterRain",
+   "pattern": "VOL_Wet_AfterRain",
+   "tile": 24.0,
+   "albedo": 0.025,
+   "smooth": 0.93,
+   "lift": 0.012
+  },
+  {
+   "name": "Rain",
+   "pattern": "VOL_Wet_Rain",
+   "tile": 24.0,
+   "albedo": 0.02,
+   "smooth": 0.95,
+   "lift": 0.012
+  }
+ ],
+ "probes": [
+  {
+   "name": "plaza_w",
+   "pos": [
+    -45,
+    2.4,
+    -15
+   ],
+   "size": [
+    46,
+    26.0,
+    56
+   ]
+  },
+  {
+   "name": "plaza_c",
+   "pos": [
+    0,
+    2.4,
+    -15
+   ],
+   "size": [
+    46,
+    26.0,
+    56
+   ]
+  },
+  {
+   "name": "plaza_e",
+   "pos": [
+    45,
+    2.4,
+    -15
+   ],
+   "size": [
+    46,
+    26.0,
+    56
+   ]
+  },
+  {
+   "name": "avenue_w",
+   "pos": [
+    -30,
+    2.4,
+    -52
+   ],
+   "size": [
+    60,
+    26.0,
+    26
+   ]
+  },
+  {
+   "name": "avenue_e",
+   "pos": [
+    30,
+    2.4,
+    -52
+   ],
+   "size": [
+    60,
+    26.0,
+    26
+   ]
+  },
+  {
+   "name": "parking_sw",
+   "pos": [
+    120,
+    2.4,
+    62
+   ],
+   "size": [
+    42,
+    26.0,
+    46
+   ]
+  },
+  {
+   "name": "parking_se",
+   "pos": [
+    165,
+    2.4,
+    62
+   ],
+   "size": [
+    46,
+    26.0,
+    46
+   ]
+  },
+  {
+   "name": "parking_nw",
+   "pos": [
+    120,
+    2.4,
+    112
+   ],
+   "size": [
+    42,
+    26.0,
+    52
+   ]
+  },
+  {
+   "name": "parking_ne",
+   "pos": [
+    165,
+    2.4,
+    112
+   ],
+   "size": [
+    46,
+    26.0,
+    52
+   ]
+  },
+  {
+   "name": "mall_east",
+   "pos": [
+    96,
+    2.4,
+    105
+   ],
+   "size": [
+    22,
+    26.0,
+    70
+   ]
+  },
+  {
+   "name": "mall_west",
+   "pos": [
+    -96,
+    2.4,
+    105
+   ],
+   "size": [
+    22,
+    26.0,
+    70
+   ]
+  },
+  {
+   "name": "mall_front_e",
+   "pos": [
+    70,
+    2.4,
+    30
+   ],
+   "size": [
+    36,
+    26.0,
+    30
+   ]
+  }
+ ]
+}

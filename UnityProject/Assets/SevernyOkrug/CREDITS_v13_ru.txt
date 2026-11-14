@@ -1,0 +1,11 @@
+Северный Округ v13 «ТЦ «Волна»» — источники новых ресурсов
+==========================================================
+Небо (Resources/VolnaLook/VOL_Sky_*, VOL_SkyR_*): HDRI с polyhaven.com — лицензия CC0 (общественное достояние).
+Панорамы пересчитаны скриптом (наклон солнца, нормировка яркости горизонта, мягкое колено бликов, земля под горизонтом),
+исходники не изменяют лицензию.
+  Утро     — «Table Mountain 1 (Pure Sky)»: Greg Zaal (оригинал), Jarod Guest (небо)
+  День     — «Kloofendal 48d Partly Cloudy (Pure Sky)»: Greg Zaal (оригинал), Jarod Guest (небо)
+  Вечер    — «Scythian Tombs (Pure Sky)»: Sergej Majboroda (оригинал), Jarod Guest (небо)
+  Пасмурно — «Kloofendal Overcast (Pure Sky)»: Greg Zaal
+Маски мокрых пятен (VOL_Wet_*), данные света (vol_look.json), код: свои.
+Ассеты, логотипы и тексты Escape from Tarkov / Battlestate Games не использовались; бренды на карте — вымышленные.
