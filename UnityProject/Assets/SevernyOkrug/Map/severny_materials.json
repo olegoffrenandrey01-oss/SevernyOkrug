@@ -1,0 +1,1514 @@
+{
+ "M_BenchWood_Blue": {
+  "base_tex": "TB_M_BenchWood_Blue_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.749,
+  "metallic": 0.001,
+  "normal_tex": "T_plywood_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_BenchWood_Brown": {
+  "base_tex": "TB_M_BenchWood_Brown_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.749,
+  "metallic": 0.001,
+  "normal_tex": "T_plywood_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_BenchWood_Green": {
+  "base_tex": "TB_M_BenchWood_Green_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.749,
+  "metallic": 0.001,
+  "normal_tex": "T_plywood_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_BenchWood_Natural": {
+  "base_tex": "T_plywood_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.749,
+  "metallic": 0.001,
+  "normal_tex": "T_plywood_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Chrome": {
+  "base_tex": "TB_M_Chrome_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.148,
+  "metallic": 1.0,
+  "normal_tex": "T_rusty_metal_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Chrome__2S": {
+  "base_tex": "TB_M_Chrome_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.148,
+  "metallic": 1.0,
+  "normal_tex": "T_rusty_metal_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Cloth_Blue": {
+  "base_tex": "T_rough_linen_BC.jpg",
+  "tint": [
+   0.661,
+   0.461,
+   0.295
+  ],
+  "roughness": 0.66,
+  "metallic": 0.006,
+  "normal_tex": "T_rough_linen_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Cloth_Green": {
+  "base_tex": "TB_M_Cloth_Green_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.66,
+  "metallic": 0.006,
+  "normal_tex": "T_rough_linen_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Cloth_Red": {
+  "base_tex": "TB_M_Cloth_Red_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.66,
+  "metallic": 0.006,
+  "normal_tex": "T_rough_linen_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Cloth_Yellow": {
+  "base_tex": "TB_M_Cloth_Yellow_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.66,
+  "metallic": 0.006,
+  "normal_tex": "T_rough_linen_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Corrugated": {
+  "base_tex": "T_corrugated_iron_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.704,
+  "metallic": 0.7,
+  "normal_tex": "T_corrugated_iron_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Corrugated__2S": {
+  "base_tex": "T_corrugated_iron_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.704,
+  "metallic": 0.7,
+  "normal_tex": "T_corrugated_iron_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Galvanized": {
+  "base_tex": "TB_M_Galvanized_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.381,
+  "metallic": 0.8,
+  "normal_tex": "T_rusty_metal_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Galvanized__2S": {
+  "base_tex": "TB_M_Galvanized_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.381,
+  "metallic": 0.8,
+  "normal_tex": "T_rusty_metal_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Headlight": {
+  "color": [
+   0.85,
+   0.85,
+   0.8
+  ],
+  "roughness": 0.3,
+  "metallic": 0.0,
+  "emission": [
+   0.2,
+   0.19,
+   0.17
+  ]
+ },
+ "M_LA_Container_Blue__2S": {
+  "color": [
+   0.05,
+   0.2,
+   0.5
+  ],
+  "roughness": 0.55,
+  "metallic": 0.3,
+  "two_sided": true
+ },
+ "M_LA_Container_Green__2S": {
+  "color": [
+   0.1,
+   0.35,
+   0.15
+  ],
+  "roughness": 0.55,
+  "metallic": 0.3,
+  "two_sided": true
+ },
+ "M_LA_Container_Grey__2S": {
+  "color": [
+   0.45,
+   0.47,
+   0.48
+  ],
+  "roughness": 0.55,
+  "metallic": 0.3,
+  "two_sided": true
+ },
+ "M_LA_Container_Orange__2S": {
+  "color": [
+   0.85,
+   0.35,
+   0.05
+  ],
+  "roughness": 0.55,
+  "metallic": 0.3,
+  "two_sided": true
+ },
+ "M_LA_Container_Red__2S": {
+  "color": [
+   0.55,
+   0.08,
+   0.05
+  ],
+  "roughness": 0.55,
+  "metallic": 0.3,
+  "two_sided": true
+ },
+ "M_LA_Container_White__2S": {
+  "color": [
+   0.8,
+   0.8,
+   0.78
+  ],
+  "roughness": 0.55,
+  "metallic": 0.3,
+  "two_sided": true
+ },
+ "M_LA_Crane_Red__2S": {
+  "color": [
+   0.7,
+   0.1,
+   0.06
+  ],
+  "roughness": 0.5,
+  "metallic": 0.4,
+  "two_sided": true
+ },
+ "M_LA_Ferris_Red__2S": {
+  "color": [
+   0.8,
+   0.08,
+   0.05
+  ],
+  "roughness": 0.4,
+  "metallic": 0.0,
+  "two_sided": true
+ },
+ "M_LA_Lifeguard_Blue__2S": {
+  "color": [
+   0.1,
+   0.45,
+   0.85
+  ],
+  "roughness": 0.5,
+  "metallic": 0.0,
+  "two_sided": true
+ },
+ "M_LA_Ocean__2S": {
+  "color": [
+   0.02,
+   0.11,
+   0.16
+  ],
+  "roughness": 0.04,
+  "metallic": 0.0,
+  "two_sided": true
+ },
+ "M_LA_SignText_White__2S": {
+  "color": [
+   0.95,
+   0.95,
+   0.95
+  ],
+  "roughness": 0.3,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   1.9,
+   1.9,
+   1.9
+  ]
+ },
+ "M_LA_SignText_Yellow__2S": {
+  "color": [
+   1.0,
+   0.82,
+   0.1
+  ],
+  "roughness": 0.3,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   3.0,
+   2.46,
+   0.3
+  ]
+ },
+ "M_LA_Sign_FreewayGreen__2S": {
+  "color": [
+   0.0,
+   0.32,
+   0.14
+  ],
+  "roughness": 0.5,
+  "metallic": 0.0,
+  "two_sided": true
+ },
+ "M_Paint_Black": {
+  "base_tex": "TB_M_Paint_Black_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.257,
+  "metallic": 0.3,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Paint_Black__2S": {
+  "base_tex": "TB_M_Paint_Black_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.257,
+  "metallic": 0.3,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Paint_Blue": {
+  "base_tex": "TB_M_Paint_Blue_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.2,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Paint_Blue__2S": {
+  "base_tex": "TB_M_Paint_Blue_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.2,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Paint_DarkGreen": {
+  "base_tex": "T_green_metal_rust_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.504,
+  "metallic": 0.2,
+  "normal_tex": "T_green_metal_rust_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Paint_Red": {
+  "base_tex": "TB_M_Paint_Red_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.2,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Paint_Red__2S": {
+  "base_tex": "TB_M_Paint_Red_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.2,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Paint_White": {
+  "base_tex": "TB_M_Paint_White_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.1,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Paint_White__2S": {
+  "base_tex": "TB_M_Paint_White_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.1,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Paint_Yellow": {
+  "base_tex": "TB_M_Paint_Yellow_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.2,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Paint_Yellow__2S": {
+  "base_tex": "TB_M_Paint_Yellow_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.286,
+  "metallic": 0.2,
+  "normal_tex": "T_blue_metal_plate_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "M_Plate": {
+  "color": [
+   0.92,
+   0.92,
+   0.9
+  ],
+  "roughness": 0.3,
+  "metallic": 0.0
+ },
+ "M_Rust": {
+  "base_tex": "T_rusty_metal_04_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.704,
+  "metallic": 0.213,
+  "normal_tex": "T_rusty_metal_04_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_SandSoft": {
+  "base_tex": "TB_M_SandSoft_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.872,
+  "metallic": 0.001,
+  "normal_tex": "T_sandy_gravel_N.jpg",
+  "normal_flip_g": true
+ },
+ "M_Sign_BG_Black": {
+  "color": [
+   0.03,
+   0.03,
+   0.03
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.0075,
+   0.0075,
+   0.0075
+  ]
+ },
+ "M_Sign_BG_Blue": {
+  "color": [
+   0.02,
+   0.09,
+   0.4
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.005,
+   0.0225,
+   0.1
+  ]
+ },
+ "M_Sign_BG_Brown": {
+  "color": [
+   0.16,
+   0.06,
+   0.02
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.04,
+   0.015,
+   0.005
+  ]
+ },
+ "M_Sign_BG_Cream": {
+  "color": [
+   0.9,
+   0.85,
+   0.7
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.225,
+   0.2125,
+   0.175
+  ]
+ },
+ "M_Sign_BG_Green": {
+  "color": [
+   0.02,
+   0.28,
+   0.07
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.005,
+   0.07,
+   0.0175
+  ]
+ },
+ "M_Sign_BG_Orange": {
+  "color": [
+   0.8,
+   0.25,
+   0.02
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.2,
+   0.0625,
+   0.005
+  ]
+ },
+ "M_Sign_BG_Red": {
+  "color": [
+   0.55,
+   0.03,
+   0.03
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.1375,
+   0.0075,
+   0.0075
+  ]
+ },
+ "M_Sign_BG_Teal": {
+  "color": [
+   0.0,
+   0.35,
+   0.35
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.0,
+   0.0875,
+   0.0875
+  ]
+ },
+ "M_Sign_BG_White": {
+  "color": [
+   0.85,
+   0.85,
+   0.82
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.2125,
+   0.2125,
+   0.205
+  ]
+ },
+ "M_Sign_BG_Yellow": {
+  "color": [
+   0.85,
+   0.6,
+   0.03
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.2125,
+   0.15,
+   0.0075
+  ]
+ },
+ "M_Sign_Text_Blue": {
+  "color": [
+   0.02,
+   0.12,
+   0.6
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   0.036,
+   0.216,
+   1.08
+  ]
+ },
+ "M_Sign_Text_Red": {
+  "color": [
+   0.75,
+   0.02,
+   0.02
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   1.35,
+   0.036,
+   0.036
+  ]
+ },
+ "M_Sign_Text_White": {
+  "color": [
+   0.95,
+   0.95,
+   0.92
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   1.71,
+   1.71,
+   1.656
+  ]
+ },
+ "M_Sign_Text_Yellow": {
+  "color": [
+   1.0,
+   0.75,
+   0.08
+  ],
+  "roughness": 0.45,
+  "metallic": 0.0,
+  "two_sided": true,
+  "emission": [
+   1.8,
+   1.35,
+   0.144
+  ]
+ },
+ "M_Taillight": {
+  "color": [
+   0.5,
+   0.02,
+   0.02
+  ],
+  "roughness": 0.3,
+  "metallic": 0.0,
+  "emission": [
+   0.3,
+   0.015,
+   0.009
+  ]
+ },
+ "asphalt": {
+  "base_tex": "T_asphalt_02_BC.jpg",
+  "tint": [
+   0.9116,
+   0.9133,
+   0.9065
+  ],
+  "roughness": 0.771,
+  "metallic": 0.003,
+  "normal_tex": "T_asphalt_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "asphalt__2S": {
+  "base_tex": "T_asphalt_02_BC.jpg",
+  "tint": [
+   0.9116,
+   0.9133,
+   0.9065
+  ],
+  "roughness": 0.771,
+  "metallic": 0.003,
+  "normal_tex": "T_asphalt_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "asphalt_broken": {
+  "base_tex": "T_asphalt_04_BC.jpg",
+  "tint": [
+   0.4385,
+   0.4503,
+   0.4406
+  ],
+  "roughness": 0.932,
+  "metallic": 0.0,
+  "normal_tex": "T_asphalt_04_N.jpg",
+  "normal_flip_g": true
+ },
+ "bark": {
+  "base_tex": "T_bark_brown_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.903,
+  "metallic": 0.002,
+  "normal_tex": "T_bark_brown_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "bark__2S": {
+  "base_tex": "T_bark_brown_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.903,
+  "metallic": 0.002,
+  "normal_tex": "T_bark_brown_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "brick": {
+  "base_tex": "T_red_brick_03_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.532,
+  "metallic": 0.002,
+  "normal_tex": "T_red_brick_03_N.jpg",
+  "normal_flip_g": true
+ },
+ "brick__2S": {
+  "base_tex": "T_red_brick_03_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.532,
+  "metallic": 0.002,
+  "normal_tex": "T_red_brick_03_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "car_blue": {
+  "color": [
+   0.063,
+   0.0631,
+   0.0932
+  ],
+  "roughness": 0.48,
+  "metallic": 0.5
+ },
+ "car_brown": {
+  "color": [
+   0.0981,
+   0.0696,
+   0.0425
+  ],
+  "roughness": 0.48,
+  "metallic": 0.5
+ },
+ "car_red": {
+  "color": [
+   0.1539,
+   0.0547,
+   0.0378
+  ],
+  "roughness": 0.48,
+  "metallic": 0.5
+ },
+ "concrete": {
+  "base_tex": "T_concrete_wall_006_BC.jpg",
+  "tint": [
+   2.6572,
+   3.4576,
+   4.3282
+  ],
+  "roughness": 0.772,
+  "metallic": 0.001,
+  "normal_tex": "T_concrete_wall_006_N.jpg",
+  "normal_flip_g": true
+ },
+ "concrete__2S": {
+  "base_tex": "T_concrete_wall_006_BC.jpg",
+  "tint": [
+   2.6572,
+   3.4576,
+   4.3282
+  ],
+  "roughness": 0.772,
+  "metallic": 0.001,
+  "normal_tex": "T_concrete_wall_006_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "concrete_dark": {
+  "base_tex": "T_concrete_wall_006_BC.jpg",
+  "tint": [
+   1.2311,
+   1.6016,
+   2.0314
+  ],
+  "roughness": 0.772,
+  "metallic": 0.001,
+  "normal_tex": "T_concrete_wall_006_N.jpg",
+  "normal_flip_g": true
+ },
+ "concrete_dark__2S": {
+  "base_tex": "T_concrete_wall_006_BC.jpg",
+  "tint": [
+   1.2311,
+   1.6016,
+   2.0314
+  ],
+  "roughness": 0.772,
+  "metallic": 0.001,
+  "normal_tex": "T_concrete_wall_006_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "concrete_stain": {
+  "base_tex": "T_dirty_concrete_BC.jpg",
+  "tint": [
+   0.901,
+   0.9088,
+   0.92
+  ],
+  "roughness": 0.864,
+  "metallic": 0.002,
+  "normal_tex": "T_dirty_concrete_N.jpg",
+  "normal_flip_g": true
+ },
+ "concrete_stain__2S": {
+  "base_tex": "T_dirty_concrete_BC.jpg",
+  "tint": [
+   0.901,
+   0.9088,
+   0.92
+  ],
+  "roughness": 0.864,
+  "metallic": 0.002,
+  "normal_tex": "T_dirty_concrete_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "door_paint": {
+  "base_tex": "T_painted_metal_shutter_BC.jpg",
+  "tint": [
+   0.284,
+   0.467,
+   0.334
+  ],
+  "roughness": 0.633,
+  "metallic": 0.001,
+  "normal_tex": "T_painted_metal_shutter_N.jpg",
+  "normal_flip_g": true
+ },
+ "fabric_dark": {
+  "base_tex": "T_rough_linen_BC.jpg",
+  "tint": [
+   0.092,
+   0.064,
+   0.048
+  ],
+  "roughness": 0.66,
+  "metallic": 0.006,
+  "normal_tex": "T_rough_linen_N.jpg",
+  "normal_flip_g": true
+ },
+ "fabric_grey": {
+  "base_tex": "T_rough_linen_BC.jpg",
+  "tint": [
+   0.661,
+   0.461,
+   0.295
+  ],
+  "roughness": 0.66,
+  "metallic": 0.006,
+  "normal_tex": "T_rough_linen_N.jpg",
+  "normal_flip_g": true
+ },
+ "glass_blue": {
+  "color": [
+   0.026,
+   0.038,
+   0.045
+  ],
+  "roughness": 0.19,
+  "metallic": 0.386
+ },
+ "glass_blue__2S": {
+  "color": [
+   0.026,
+   0.038,
+   0.045
+  ],
+  "roughness": 0.19,
+  "metallic": 0.386,
+  "two_sided": true
+ },
+ "glass_dark": {
+  "color": [
+   0.003,
+   0.0037,
+   0.0044
+  ],
+  "roughness": 0.04,
+  "metallic": 0.386
+ },
+ "glass_dark__2S": {
+  "color": [
+   0.003,
+   0.0037,
+   0.0044
+  ],
+  "roughness": 0.04,
+  "metallic": 0.386,
+  "two_sided": true
+ },
+ "grass": {
+  "base_tex": "T_leafy_grass_BC.jpg",
+  "tint": [
+   0.2269,
+   0.4947,
+   0.2101
+  ],
+  "roughness": 0.686,
+  "metallic": 0.001,
+  "normal_tex": "T_leafy_grass_N.jpg",
+  "normal_flip_g": true
+ },
+ "grass__2S": {
+  "base_tex": "T_leafy_grass_BC.jpg",
+  "tint": [
+   0.2269,
+   0.4947,
+   0.2101
+  ],
+  "roughness": 0.686,
+  "metallic": 0.001,
+  "normal_tex": "T_leafy_grass_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "grass_dry": {
+  "base_tex": "T_sparse_grass_BC.jpg",
+  "tint": [
+   1.8921,
+   2.9272,
+   2.1982
+  ],
+  "roughness": 0.944,
+  "metallic": 0.001,
+  "normal_tex": "T_sparse_grass_N.jpg",
+  "normal_flip_g": true
+ },
+ "grass_dry__2S": {
+  "base_tex": "T_sparse_grass_BC.jpg",
+  "tint": [
+   1.8921,
+   2.9272,
+   2.1982
+  ],
+  "roughness": 0.944,
+  "metallic": 0.001,
+  "normal_tex": "T_sparse_grass_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "gravel": {
+  "base_tex": "T_gravel_floor_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.474,
+  "metallic": 0.001,
+  "normal_tex": "T_gravel_floor_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "gravel__2S": {
+  "base_tex": "T_gravel_floor_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.474,
+  "metallic": 0.001,
+  "normal_tex": "T_gravel_floor_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "lamp_warm": {
+  "color": [
+   1.0,
+   0.6724,
+   0.3515
+  ],
+  "roughness": 0.3,
+  "metallic": 0.386,
+  "emission": [
+   3.0,
+   2.0172,
+   1.0545
+  ]
+ },
+ "lamp_warm__2S": {
+  "color": [
+   1.0,
+   0.6724,
+   0.3515
+  ],
+  "roughness": 0.3,
+  "metallic": 0.386,
+  "two_sided": true,
+  "emission": [
+   3.0,
+   2.0172,
+   1.0545
+  ]
+ },
+ "leather": {
+  "base_tex": "T_brown_leather_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   0.2699
+  ],
+  "roughness": 0.663,
+  "metallic": 0.003,
+  "normal_tex": "T_brown_leather_N.jpg",
+  "normal_flip_g": true
+ },
+ "leaves": {
+  "base_tex": "T_Leaves_summer_BaseColor.png",
+  "tint": [
+   1.0,
+   1.0,
+   0.9729
+  ],
+  "roughness": 0.6,
+  "metallic": 0.0,
+  "normal_tex": "T_Leaves_Normal.png",
+  "normal_flip_g": true,
+  "alpha_clip": true
+ },
+ "leaves__2S": {
+  "base_tex": "T_Leaves_summer_BaseColor.png",
+  "tint": [
+   1.0,
+   1.0,
+   0.9729
+  ],
+  "roughness": 0.6,
+  "metallic": 0.0,
+  "normal_tex": "T_Leaves_Normal.png",
+  "normal_flip_g": true,
+  "alpha_clip": true,
+  "two_sided": true
+ },
+ "leaves_autumn": {
+  "base_tex": "T_Leaves_autumn_BaseColor.png",
+  "tint": [
+   1.0,
+   1.0,
+   0.6599
+  ],
+  "roughness": 0.6,
+  "metallic": 0.0,
+  "normal_tex": "T_Leaves_Normal.png",
+  "normal_flip_g": true,
+  "alpha_clip": true
+ },
+ "mud": {
+  "base_tex": "T_brown_mud_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.953,
+  "metallic": 0.002,
+  "normal_tex": "T_brown_mud_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "mud__2S": {
+  "base_tex": "T_brown_mud_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.953,
+  "metallic": 0.002,
+  "normal_tex": "T_brown_mud_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "paint_white": {
+  "base_tex": "TB_paint_white_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.6,
+  "metallic": 0.003,
+  "normal_tex": "T_asphalt_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "paint_white__2S": {
+  "base_tex": "TB_paint_white_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.6,
+  "metallic": 0.003,
+  "normal_tex": "T_asphalt_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "paint_yellow": {
+  "base_tex": "TB_paint_yellow_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.6,
+  "metallic": 0.003,
+  "normal_tex": "T_asphalt_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "paint_yellow__2S": {
+  "base_tex": "TB_paint_yellow_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.6,
+  "metallic": 0.003,
+  "normal_tex": "T_asphalt_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "plaster_cream": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   1.479,
+   1.387,
+   1.062
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "plaster_cream__2S": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   1.479,
+   1.387,
+   1.062
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "plaster_grey": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   0.835,
+   0.937,
+   1.062
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "plaster_grey__2S": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   0.835,
+   0.937,
+   1.062
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "plaster_ochre": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   1.17,
+   0.777,
+   0.317
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "plaster_ochre__2S": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   1.17,
+   0.777,
+   0.317
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "plaster_red": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   0.618,
+   0.147,
+   0.107
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "plaster_red__2S": {
+  "base_tex": "T_plastered_wall_02_BC.jpg",
+  "tint": [
+   0.618,
+   0.147,
+   0.107
+  ],
+  "roughness": 0.908,
+  "metallic": 0.0,
+  "normal_tex": "T_plastered_wall_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "rubber": {
+  "base_tex": "TB_rubber_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.85,
+  "metallic": 0.001,
+  "normal_tex": "T_rough_concrete_N.jpg",
+  "normal_flip_g": true
+ },
+ "rust_metal": {
+  "base_tex": "T_rusty_metal_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.423,
+  "metallic": 0.002,
+  "normal_tex": "T_rusty_metal_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "rust_metal__2S": {
+  "base_tex": "T_rusty_metal_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.423,
+  "metallic": 0.002,
+  "normal_tex": "T_rusty_metal_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "sand": {
+  "base_tex": "T_sandy_gravel_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.872,
+  "metallic": 0.001,
+  "normal_tex": "T_sandy_gravel_N.jpg",
+  "normal_flip_g": true
+ },
+ "sand__2S": {
+  "base_tex": "T_sandy_gravel_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.872,
+  "metallic": 0.001,
+  "normal_tex": "T_sandy_gravel_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "soil": {
+  "base_tex": "T_brown_mud_dry_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.528,
+  "metallic": 0.002,
+  "normal_tex": "T_brown_mud_dry_N.jpg",
+  "normal_flip_g": true
+ },
+ "soil__2S": {
+  "base_tex": "T_brown_mud_dry_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.528,
+  "metallic": 0.002,
+  "normal_tex": "T_brown_mud_dry_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "steel": {
+  "base_tex": "TB_steel_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.59,
+  "metallic": 1.0,
+  "normal_tex": "T_metal_plate_N.jpg",
+  "normal_flip_g": true
+ },
+ "steel__2S": {
+  "base_tex": "TB_steel_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.59,
+  "metallic": 1.0,
+  "normal_tex": "T_metal_plate_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "steel_light": {
+  "base_tex": "TB_steel_light_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.59,
+  "metallic": 1.0,
+  "normal_tex": "T_metal_plate_N.jpg",
+  "normal_flip_g": true
+ },
+ "steel_light__2S": {
+  "base_tex": "TB_steel_light_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.59,
+  "metallic": 1.0,
+  "normal_tex": "T_metal_plate_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "tarp": {
+  "base_tex": "T_rough_linen_BC.jpg",
+  "tint": [
+   0.081,
+   0.207,
+   0.264
+  ],
+  "roughness": 0.396,
+  "metallic": 0.006,
+  "normal_tex": "T_rough_linen_N.jpg",
+  "normal_flip_g": true
+ },
+ "wood_old": {
+  "base_tex": "T_old_planks_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.675,
+  "metallic": 0.001,
+  "normal_tex": "T_old_planks_02_N.jpg",
+  "normal_flip_g": true
+ },
+ "wood_old__2S": {
+  "base_tex": "T_old_planks_02_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.675,
+  "metallic": 0.001,
+  "normal_tex": "T_old_planks_02_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ },
+ "wood_pale": {
+  "base_tex": "T_raw_plank_wall_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.718,
+  "metallic": 0.001,
+  "normal_tex": "T_raw_plank_wall_N.jpg",
+  "normal_flip_g": true
+ },
+ "wood_pale__2S": {
+  "base_tex": "T_raw_plank_wall_BC.jpg",
+  "tint": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "roughness": 0.718,
+  "metallic": 0.001,
+  "normal_tex": "T_raw_plank_wall_N.jpg",
+  "normal_flip_g": true,
+  "two_sided": true
+ }
+}

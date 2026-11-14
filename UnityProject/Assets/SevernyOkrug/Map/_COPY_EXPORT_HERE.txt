@@ -1,0 +1,3 @@
+Скопируйте сюда содержимое папки Map из экспорта Blender:
+SEV_*.fbx, папку Textures, severny_map_manifest.json, severny_materials.json.
+Затем меню Severny > 3 Place Map, Severny > 4 Bake NavMesh, Severny > 5 Validate Map.
