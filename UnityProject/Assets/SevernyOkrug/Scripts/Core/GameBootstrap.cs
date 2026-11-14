@@ -307,6 +307,9 @@ namespace Severny
                     AtmosphereFX.Create(_raid.transform, nb, world, _dress);
                 }
                 catch (Exception e) { Debug.LogError("[Severny] Атмосфера (v12) не создана: " + e); }
+                ui.SetLoading(0.93f, "Детализация поверхностей всей карты…");
+                Transform detailWorld = _kit != null ? _kit : _greybox != null ? _greybox : _sceneRoot != null ? _sceneRoot.transform : null;
+                yield return V14SurfaceDetail.Build(_raid.transform, detailWorld);
                 ui.SetLoading(0.93f, "Отражения…");
                 yield return ReflectionGrid.Build(_raid.transform, tri.vertices, t => ui.SetLoading(0.93f + t * 0.02f, "Отражения… " + Mathf.RoundToInt(t * 100f) + "%"));
             }

@@ -8,3 +8,5 @@
 *.sln
 *.slnx
 *.unitypackage
+__pycache__/
+*.pyc

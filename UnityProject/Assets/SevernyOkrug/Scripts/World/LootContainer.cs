@@ -21,7 +21,7 @@ namespace Severny
         public int nid;
         public bool Generated => _generated;
 
-        bool _generated;
+        bool _generated, _questCounted;
         readonly HashSet<ItemInstance> _hidden = new HashSet<ItemInstance>();
         float _searchTimer, _nextSearchSnd;
 
@@ -75,8 +75,8 @@ namespace Severny
                 AddItem(w, rng);
                 int mags = rng.Next(1, 3) + (luck > 1.5f ? 1 : 0);
                 for (int i = 0; i < mags; i++) AddItem(ItemDB.Get(w.magId), rng);
-                AddItem(ItemDB.Get(rng.NextDouble() < 0.18 * luck ? (w.caliber == "9x18" ? "a918bp" : "a545bp") : (w.caliber == "9x18" ? "a918" : "a545")), rng);
-                if (rng.NextDouble() < 0.5) AddItem(ItemDB.Get(w.caliber == "9x18" ? "a918" : "a545"), rng);
+                AddItem(ItemDB.Get(ItemDB.DefaultAmmo(w.caliber, rng.NextDouble() < 0.18 * luck)), rng);
+                if (rng.NextDouble() < 0.5) AddItem(ItemDB.Get(ItemDB.DefaultAmmo(w.caliber)), rng);
                 return;
             }
             int n = rng.Next(minItems, maxItems + 1);
@@ -91,7 +91,7 @@ namespace Severny
         {
             if (d == null) return false;
             var it = ItemInstance.Create(d.id);
-            string ammoFor(ItemDef x) => x.caliber == "9x18" ? (rng.NextDouble() < 0.12 * ItemDB.Luck ? "a918bp" : "a918") : (rng.NextDouble() < 0.12 * ItemDB.Luck ? "a545bp" : "a545");
+            string ammoFor(ItemDef x) => ItemDB.DefaultAmmo(x.caliber, rng.NextDouble() < 0.12 * ItemDB.Luck);
             switch (d.type)
             {
                 case ItemType.Ammo:
@@ -152,13 +152,16 @@ namespace Severny
                 _nextSearchSnd = Time.unscaledTime + SFX.Search.length - 0.05f;
                 SFX.PlayAt(SFX.Search, transform.position + Vector3.up * 0.4f, 0.55f, 2f, 20f, 0.04f);
             }
-            _searchTimer += dt;
+            bool toolContainer = table == ItemDB.LootTable.Toolbox || table == ItemDB.LootTable.Cabinet;
+            _searchTimer += dt * (toolContainer && UtilityItems.HasTools(RaidManager.I?.player?.loadout) ? V14Settings.Current.toolSearchSpeed : 1f);
             if (_searchTimer < searchTimePerItem) return;
             _searchTimer = 0f;
             ItemInstance first = null;
             foreach (var it in grid.items) if (_hidden.Contains(it)) { first = it; break; }
             if (first == null) { _hidden.Clear(); return; }
             _hidden.Remove(first);
+            if (_hidden.Count == 0 && !_questCounted && !isCorpse)
+            { _questCounted = true; QuestSystem.Record("search"); }
             grid.Notify();
         }
 
@@ -173,6 +176,7 @@ namespace Severny
             Vector3 size;
             switch (t)
             {
+                case ItemDB.LootTable.Pantry:
                 case ItemDB.LootTable.Bag:
                     lc.title = "Сумка"; size = new Vector3(0.7f, 0.35f, 0.4f); lc.grid = new InventoryGrid("Сумка", 4, 4); lc.minItems = 2; lc.maxItems = 4;
                     Prim.Box(g.transform, new Vector3(0, size.y * 0.5f, 0), size, GameAssets.Lit(new Color(0.18f, 0.2f, 0.15f), 0.1f), false);
@@ -231,6 +235,12 @@ namespace Severny
             }
             var col = g.AddComponent<BoxCollider>();
             col.center = new Vector3(0, size.y * 0.5f, 0); col.size = size;
+            if (t == ItemDB.LootTable.Crate || t == ItemDB.LootTable.WeaponCrate || t == ItemDB.LootTable.Military)
+            {
+                var surface = g.AddComponent<BulletSurface>();
+                surface.kind = BulletMaterial.Wood;
+                surface.hollowShell = true; surface.thickness = 0.025f; surface.resistancePerMeter = 180f;
+            }
             return lc;
         }
     }

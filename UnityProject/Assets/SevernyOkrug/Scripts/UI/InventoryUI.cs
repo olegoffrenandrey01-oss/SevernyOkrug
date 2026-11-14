@@ -1092,6 +1092,7 @@ namespace Severny
         void DefaultAction(ItemInstance it, Loc loc)
         {
             var d = it.Def; if (d == null) return;
+            if (mode == Mode.Raid && Player != null && !loc.isSlot && UtilityItems.CanUse(it)) { _ui.Toast(UtilityItems.Use(Player, it, loc.grid)); Changed(false); return; }
             if (d.type == ItemType.Medical && mode == Mode.Raid && Player != null && !loc.isSlot) { UseMed(it, loc); return; }
             if ((d.type == ItemType.Magazine || d.type == ItemType.Weapon) && it.ammo > 0) { Unload(it, loc); return; }
             if (mode == Mode.Trader && loc.grid == P.stash) { Sell(it); return; }
@@ -1122,8 +1123,9 @@ namespace Severny
 
         void Sell(ItemInstance it)
         {
+            if (it == null || it.Def == null || !P.stash.items.Contains(it)) return;
             int price = SellPrice(it);
-            P.stash.Remove(it);
+            if (!P.stash.Remove(it)) return;
             P.roubles += price; P.lootSoldTotal += price;
             if (_selected == it) _selected = null;
             SFX.Play2D(SFX.Buy, 0.6f);
@@ -1132,7 +1134,7 @@ namespace Severny
             Changed(false);
         }
 
-        static int SellPrice(ItemInstance it) => Mathf.Max(1, it.Price / 2);
+        static int SellPrice(ItemInstance it) => Mathf.Max(1, Mathf.FloorToInt(it.Price * V14Settings.Current.sellFraction));
 
         void Changed(bool loadout)
         {
@@ -1143,17 +1145,18 @@ namespace Severny
         }
 
         // ------------------------------------------------------------------ trader offers
-        static readonly string[] Offers = { "av74", "p9m", "mag_av74", "mag_p9m", "a545", "a545bp", "a918", "bandage", "medkit", "bigkit", "surgkit", "painkill", "vest3", "vest4", "helm2", "water", "stew" };
+        static string[] Offers => V14Settings.Current.offers;
 
         static int PackSize(ItemDef d) => d.type == ItemType.Ammo ? Mathf.Min(d.maxStack, 30) : 1;
-        static int BuyPrice(ItemDef d) => Mathf.RoundToInt(d.price * PackSize(d) * 1.15f);
+        static int BuyPrice(ItemDef d) => Mathf.RoundToInt(d.price * PackSize(d) * V14Settings.Current.buyMarkup);
 
         void Buy(string id)
         {
-            var d = ItemDB.Get(id); int cost = BuyPrice(d);
+            var d = ItemDB.Get(id); if (d == null) return;
+            int cost = BuyPrice(d);
             if (P.roubles < cost) { _ui.Toast("Недостаточно денег"); return; }
             var it = ItemInstance.Create(id, PackSize(d));
-            if (!P.stash.AutoPlace(it)) { _ui.Toast("В схроне нет места"); return; }
+            if (!P.stash.TryAutoPlaceAll(it)) { _ui.Toast("В схроне нет места для всей покупки"); return; }
             P.roubles -= cost;
             SFX.Play2D(SFX.Buy, 0.7f);
             _ui.Toast("Куплено: " + d.name);
@@ -1362,6 +1365,8 @@ namespace Severny
                 UIFactory.SetButtonText(b, label);
                 x += bw + 8f; _actionButtons.Add(b.gameObject);
             }
+            if (mode == Mode.Raid && Player != null && !loc.isSlot && UtilityItems.CanUse(it))
+                Act(d.type == ItemType.Food ? "УПОТРЕБИТЬ" : "РЕМОНТ БРОНИ (1 ИЗОЛЕНТА)", () => { _ui.Toast(UtilityItems.Use(Player, it, loc.grid)); Changed(false); }, BtnStyle.Primary, "med");
             if (d.type == ItemType.Medical && mode == Mode.Raid && Player != null && !loc.isSlot) Act("ИСПОЛЬЗОВАТЬ", () => UseMed(it, loc), BtnStyle.Primary, "med");
             if ((d.type == ItemType.Magazine || d.type == ItemType.Weapon) && it.ammo > 0) Act("РАЗРЯДИТЬ", () => Unload(it, loc), BtnStyle.Secondary, "bullet");
             if (!trader)

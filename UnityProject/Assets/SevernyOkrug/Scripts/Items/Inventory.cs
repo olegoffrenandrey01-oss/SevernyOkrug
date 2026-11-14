@@ -173,6 +173,18 @@ namespace Severny
             return false;
         }
 
+        /// <summary>All-or-nothing placement for purchases. AutoPlace intentionally permits partial stacking elsewhere.</summary>
+        public bool TryAutoPlaceAll(ItemInstance it)
+        {
+            if (it == null || it.Def == null || items.Contains(it)) return false;
+            int remaining = it.count;
+            if (it.Def.Stackable)
+                foreach (var o in items)
+                    if (o.id == it.id) remaining -= Mathf.Max(0, it.Def.maxStack - o.count);
+            if (remaining > 0 && !FindFree(it, out _, out _, out _)) return false;
+            return AutoPlace(it);
+        }
+
         public bool Remove(ItemInstance it) { bool r = items.Remove(it); if (r) Notify(); return r; }
 
         public int Count(string id) { int n = 0; foreach (var o in items) if (o.id == id) n += o.count; return n; }

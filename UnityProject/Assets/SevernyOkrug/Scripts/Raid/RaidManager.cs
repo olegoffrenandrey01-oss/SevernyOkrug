@@ -297,7 +297,7 @@ namespace Severny
 
         public void LeaveRaid() { if (Running) End(Outcome.Left, "Покинул рейд"); }
 
-        public void OnBotKilled(BotController b, bool byPlayer) { if (byPlayer) kills++; if (byPlayer) Hud.Notify("Противник нейтрализован", 1.5f); }
+        public void OnBotKilled(BotController b, bool byPlayer) { if (byPlayer) { kills++; QuestSystem.Record("kill"); } if (byPlayer) Hud.Notify("Противник нейтрализован", 1.5f); }
 
         public void OnItemPicked(ItemInstance it) { }
 

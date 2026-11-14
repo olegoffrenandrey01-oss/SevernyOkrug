@@ -11,7 +11,7 @@ namespace Severny
     {
         Forward, Back, Left, Right, Jump, Crouch, Sprint, Walk, LeanLeft, LeanRight,
         Reload, FireMode, CheckMag, Interact, Inventory, Exits, Pause, Heal,
-        Weapon1, Weapon2, DebugOverlay, Rotate, QuickMove, NavTest, Benchmark, Flashlight, Shots
+        Weapon1, Weapon2, DebugOverlay, Rotate, QuickMove, NavTest, Benchmark, Flashlight, Shots, Journal
     }
 
     public static class GameInput
@@ -50,6 +50,7 @@ namespace Severny
                 case GKey.NavTest: return Key.F9;
                 case GKey.Benchmark: return Key.F8;
                 case GKey.Shots: return Key.F7;
+                case GKey.Journal: return Key.F6;
                 case GKey.Flashlight: return Key.L;
             }
             return Key.None;
@@ -106,6 +107,7 @@ namespace Severny
                 case GKey.NavTest: return KeyCode.F9;
                 case GKey.Benchmark: return KeyCode.F8;
                 case GKey.Shots: return KeyCode.F7;
+                case GKey.Journal: return KeyCode.F6;
                 case GKey.Flashlight: return KeyCode.L;
             }
             return KeyCode.None;

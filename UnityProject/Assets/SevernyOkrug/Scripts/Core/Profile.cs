@@ -14,6 +14,7 @@ namespace Severny
         public int xp;
         public int raids, survived, kia, mia, kills;
         public long lootSoldTotal;
+        public System.Collections.Generic.List<QuestState> quests = new System.Collections.Generic.List<QuestState>();
         public bool tutorialDone, tutorialOffered;
         public InventoryGrid stash = new InventoryGrid("Схрон", 10, 40);
         public Loadout loadout = new Loadout();
@@ -54,6 +55,7 @@ namespace Severny
             stash.items.RemoveAll(i => ItemInstance.IsEmpty(i));
             if (loadout == null) loadout = new Loadout();
             loadout.FixupAfterLoad();
+            if (quests == null) quests = new System.Collections.Generic.List<QuestState>();
         }
 
         /// <summary>Gives a minimal free kit if the player has no weapon at all (prevents soft-lock).</summary>
@@ -158,17 +160,20 @@ namespace Severny
             return n;
         }
 
-        public static void Save()
+        public static void Save() { TrySave(); }
+
+        public static bool TrySave()
         {
-            if (_current == null) return;
+            if (_current == null) return false;
             try
             {
                 string tmp = PathFile + ".tmp";
                 File.WriteAllText(tmp, JsonUtility.ToJson(_current, true));
-                if (File.Exists(PathFile)) File.Delete(PathFile);
-                File.Move(tmp, PathFile);
+                if (File.Exists(PathFile)) File.Replace(tmp, PathFile, PathFile + ".bak");
+                else File.Move(tmp, PathFile);
+                return true;
             }
-            catch (Exception e) { Debug.LogError("[Severny] Profile save failed: " + e.Message); }
+            catch (Exception e) { Debug.LogError("[Severny] Profile save failed: " + e.Message); return false; }
         }
 
         public static void ResetProfile()

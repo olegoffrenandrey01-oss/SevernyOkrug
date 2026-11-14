@@ -585,6 +585,7 @@ namespace Severny
             Background(s, 0.88f);
             var f = UIFactory.Center(s);
             ScreenHeader(f, "Главное меню  /  Персонаж", "Персонаж");
+            UIFactory.Button(f, "ЗАДАНИЯ / F6", 1360, 90, 450, 56, OpenQuests);
 
             // ---- dossier
             var d = UIFactory.PanelBox(f, "Dossier", 64, 176, 600, 764, 0.9f);

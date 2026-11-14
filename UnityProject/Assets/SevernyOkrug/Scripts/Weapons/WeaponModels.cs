@@ -41,6 +41,17 @@ namespace Severny
                 v.root.transform.SetParent(parent, false);
                 var t = v.root.transform;
                 if (def.isPistol) BuildPistol(v, t, hands); else BuildRifle(v, t, hands);
+                if (def.id == "pp9") t.localScale = new Vector3(0.9f, 0.9f, 0.73f);
+                if (def.id == "sv762")
+                {
+                    t.localScale = new Vector3(1f, 1f, 1.18f);
+                    Prim.Cyl(t, new Vector3(0, 0.12f, 0.18f), 0.035f, 0.25f, Metal, false, Quaternion.Euler(90, 0, 0));
+                }
+                if (def.id == "d12")
+                {
+                    Prim.Cyl(t, new Vector3(0, -0.025f, 0.36f), 0.025f, 0.4f, Metal, false, Quaternion.Euler(90, 0, 0));
+                    t.localScale = new Vector3(1.1f, 1f, 1.1f);
+                }
             }
             // muzzle flash
             v.flash = Prim.Make(PrimitiveType.Sphere, v.muzzle, new Vector3(0, 0, 0.05f), new Vector3(0.05f, 0.05f, 0.14f), GameAssets.Emissive(new Color(1f, 0.62f, 0.25f), 6f), false, null, "flash");

@@ -392,14 +392,14 @@ namespace Severny
                 mr.shadowCastingMode = (g.flags & F_NOSHADOW) != 0 ? ShadowCastingMode.Off : ShadowCastingMode.On;
                 mr.receiveShadows = true;
                 mr.lightProbeUsage = LightProbeUsage.Off; mr.reflectionProbeUsage = ReflectionProbeUsage.BlendProbes;   // v12: street probes blend
-                if ((g.flags & (F_INTERIOR | F_DETAIL | F_DECAL)) != 0)
+                if ((g.flags & F_INTERIOR) == 0 && (g.flags & (F_DETAIL | F_DECAL)) != 0)
                 {
-                    float cullDist = (g.flags & F_INTERIOR) != 0 ? InteriorCull : (g.flags & F_DETAIL) != 0 ? DetailCull : DecalCull;
+                    float cullDist = (g.flags & F_DETAIL) != 0 ? DetailCull : DecalCull;
                     var lg = go.AddComponent<LODGroup>();
                     lg.SetLODs(new[] { new LOD(0.01f, new Renderer[] { mr }) });
                     lg.RecalculateBounds();
-                    float tn = (g.flags & F_INTERIOR) != 0 ? Mathf.Tan(30f * Mathf.Deg2Rad) : LodTan;
-                    float hgt = Mathf.Clamp(lg.size / (2f * cullDist * tn), 0.002f, (g.flags & F_INTERIOR) != 0 ? 0.5f : 0.95f);
+                    float tn = LodTan;
+                    float hgt = Mathf.Clamp(lg.size / (2f * cullDist * tn), 0.002f, 0.95f);
                     lg.SetLODs(new[] { new LOD(hgt, new Renderer[] { mr }) });
                     lg.fadeMode = LODFadeMode.CrossFade; lg.animateCrossFading = true;   // v12
                 }
@@ -452,6 +452,16 @@ namespace Severny
                 {
                     var bc = go.AddComponent<BoxCollider>();
                     bc.center = c; bc.size = new Vector3(Mathf.Max(s.x, 0.1f), Mathf.Max(s.y, 0.1f), Mathf.Max(s.z, 0.1f));
+                    // Explicit known prototypes only; mixed car/building colliders keep their protection.
+                    if (pr.name == "P_woodcrate" || pr.name == "P_fence_plate" || pr.name == "P_fence_half")
+                    {
+                        var surface = go.AddComponent<BulletSurface>(); surface.hollowShell = true;
+                        bool wood = pr.name == "P_woodcrate";
+                        surface.kind = wood ? BulletMaterial.Wood : BulletMaterial.ThinMetal;
+                        surface.thickness = wood ? 0.025f : 0.003f;
+                        surface.resistancePerMeter = wood ? 180f : 2500f;
+                        surface.damageRetention = wood ? 0.7f : 0.55f;
+                    }
                     colliders++;
                 }
                 else if (it.col == 2)
@@ -489,13 +499,16 @@ namespace Severny
                     {
                         float h = Mathf.Clamp(wsz / (2f * Mathf.Max(1f, pr.lodd[k]) * LodTan), 0.0004f, 0.98f);
                         if (h >= prev) h = prev * 0.85f;
-                        prev = h; L[k] = new LOD(h, new Renderer[] { rs[k] });
+                        prev = h;
+                        // The final visual of solid cover must remain while its physical collider exists.
+                        if (hasCol && k == rs.Length - 1) h = 0f;
+                        L[k] = new LOD(h, new Renderer[] { rs[k] });
                     }
                     lg.SetLODs(L);
                     lg.fadeMode = LODFadeMode.CrossFade; lg.animateCrossFading = true;
                     lodInst++;
                 }
-                else if (it.cull > 0f)
+                else if (it.cull > 0f && !hasCol)
                 {
                     // hide small debris beyond ~cull*90 m (cans 36 m, weeds 72 m)
                     var lg = go.AddComponent<LODGroup>();

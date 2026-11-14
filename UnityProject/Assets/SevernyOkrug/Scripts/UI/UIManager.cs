@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Severny
 {
-    public enum UIScreen { None, MainMenu, RaidSetup, Loading, Hud, Inventory, Settings, Base, Pause, Results, Lobby }
+    public enum UIScreen { None, MainMenu, RaidSetup, Loading, Hud, Inventory, Settings, Base, Pause, Results, Lobby, Quests }
 
     public partial class UIManager : MonoBehaviour
     {
@@ -53,6 +53,7 @@ namespace Severny
             _screens[UIScreen.Inventory] = _inv.root;
             BuildSettings();
             BuildBase();
+            BuildQuests();
             BuildPause();
             BuildResults();
             BuildLobby();
@@ -106,7 +107,7 @@ namespace Severny
             GameInput.GameplayEnabled = gameplay;
             GameInput.SetCursorLocked(gameplay);
             // LAN: the world keeps running for the other players
-            bool paused = InRaid && !NetSession.Active && (s == UIScreen.Pause || (s == UIScreen.Settings && _settingsReturn == UIScreen.Pause));
+            bool paused = InRaid && !NetSession.Active && (s == UIScreen.Pause || s == UIScreen.Quests || (s == UIScreen.Settings && _settingsReturn == UIScreen.Pause));
             Time.timeScale = paused ? 0f : 1f;
             AudioListener.pause = paused;
             if (s == UIScreen.Hud) Hud.Prompt(null);
@@ -185,8 +186,14 @@ namespace Severny
             UpdateToasts();
             if (_modalOpen) { if (GameInput.Down(GKey.Pause)) CloseModal(false); return; }
 
+            if (GameInput.Down(GKey.Journal) && (Current == UIScreen.MainMenu || Current == UIScreen.Base || Current == UIScreen.Hud))
+            { OpenQuests(); return; }
             switch (Current)
             {
+                case UIScreen.Quests:
+                    if (GameInput.Down(GKey.Pause) || GameInput.Down(GKey.Journal)) CloseQuests();
+                    else RefreshQuests();
+                    break;
                 case UIScreen.Hud:
                     UpdateHud();
                     if (!InRaid || AutoBenchmark.Running) break;

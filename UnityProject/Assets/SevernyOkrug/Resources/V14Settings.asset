@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fb0363d06f4be393f6be72b66edbc0, type: 3}
+  m_Name: V14Settings
+  m_EditorClassIdentifier:
+  surfaceDetail: 1
+  clearImage: 1
+  wearOpacity: 0.22
+  maxSurfacePatches: 1600
+  grain: 0.025
+  bloomMultiplier: 0.65
+  buyMarkup: 1.15
+  sellFraction: 0.5
+  offers:
+  - av74
+  - p9m
+  - d12
+  - sv762
+  - pp9
+  - mag_av74
+  - mag_p9m
+  - mag_d12
+  - mag_sv762
+  - mag_pp9
+  - a545
+  - a545bp
+  - a918
+  - a12
+  - a762
+  - a919
+  - bandage
+  - medkit
+  - bigkit
+  - surgkit
+  - painkill
+  - vest3
+  - vest4
+  - helm2
+  - water
+  - stew
+  - tools
+  - tape
+  - crackers
+  - juice
+  items: []
+  armorRepair: 12
+  toolSearchSpeed: 1.4

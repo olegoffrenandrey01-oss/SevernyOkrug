@@ -37,7 +37,7 @@ namespace Severny
             if (!string.IsNullOrEmpty(armorId)) p.health.armor = ItemInstance.Create(armorId);
             if (!string.IsNullOrEmpty(helmetId)) p.health.helmet = ItemInstance.Create(helmetId);
             p.wdef = ItemDB.Get(weaponId); if (p.wdef == null || p.wdef.type != ItemType.Weapon) p.wdef = ItemDB.Get("p9m");
-            p.ammo = ItemDB.Get(ammoId); if (p.ammo == null) p.ammo = ItemDB.Get(p.wdef.caliber == "9x18" ? "a918" : "a545");
+            p.ammo = ItemDB.Get(ammoId); if (p.ammo == null) p.ammo = ItemDB.Get(ItemDB.DefaultAmmo(p.wdef.caliber));
             p._bb = BotBody.Create(g.transform, p.health, p.wdef, new System.Random(bodySeed));
             if (p._bb != null) { p._aim = p._bb.aim; p._eye = p._bb.eye; p._view = p._bb.view; }
             else p.BuildFallback();

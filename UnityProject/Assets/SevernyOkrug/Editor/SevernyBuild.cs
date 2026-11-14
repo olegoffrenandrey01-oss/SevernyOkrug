@@ -89,6 +89,7 @@ namespace Severny.EditorTools
                 SevernyMenu.CreateScenesCore(false);
             }
             else PolygonKitEditor.SetupKit();
+            V14Setup.EnsureSettings();
             EnsureVariantMaterials();
             SevernyGraphicsEditor.ApplyAll(false);   // v12: Forward+, SSAO, shadows of the street lamps, sky / FX materials (variants kept in the build)
             try { VolnaEditor.EnsureAssets(); }                 // v13: import settings + sky materials of Resources/VolnaLook

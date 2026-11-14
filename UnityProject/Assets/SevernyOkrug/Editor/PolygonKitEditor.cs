@@ -16,7 +16,7 @@ namespace Severny.EditorTools
 {
     public class PolygonKitPostprocessor : AssetPostprocessor
     {
-        public override uint GetVersion() => 3;
+        public override uint GetVersion() => 4;
 
         void OnPreprocessTexture()
         {
@@ -123,7 +123,8 @@ namespace Severny.EditorTools
                 }
             }
             if (!ti.mipmapEnabled) { ti.mipmapEnabled = true; ch = true; }
-            if (ti.anisoLevel < 4) { ti.anisoLevel = 4; ch = true; }
+            if (ti.anisoLevel < 8) { ti.anisoLevel = 8; ch = true; }
+            if (ti.filterMode != FilterMode.Trilinear) { ti.filterMode = FilterMode.Trilinear; ch = true; }
             if (ti.maxTextureSize > 2048) { ti.maxTextureSize = 2048; ch = true; }
             return ch;
         }

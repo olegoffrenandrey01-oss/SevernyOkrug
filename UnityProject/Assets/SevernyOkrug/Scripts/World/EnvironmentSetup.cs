@@ -162,6 +162,16 @@ namespace Severny
         static void SetGrade(GradeDef g)
         {
             if (_profile == null) return;
+            var visual = V14Settings.Current;
+            if (visual.clearImage)
+            {
+                g.grain = Mathf.Min(g.grain, visual.grain);
+                g.bloom *= visual.bloomMultiplier;
+                g.dirt *= 0.3f;
+                g.chromAb = 0f;
+                g.vignette = Mathf.Min(g.vignette, 0.18f);
+                g.sslf *= 0.4f;
+            }
             if (_profile.TryGet(out ColorAdjustments ca)) { ca.postExposure.value = g.exposure; ca.contrast.value = g.contrast; ca.saturation.value = g.saturation; ca.colorFilter.value = g.filter; }
             if (_profile.TryGet(out WhiteBalance wb)) { wb.temperature.value = g.temperature; wb.tint.value = g.tint; }
             if (_profile.TryGet(out Bloom bl))
@@ -172,7 +182,7 @@ namespace Severny
                 bl.highQualityFiltering.Override(GfxQuality.Current.bloomHQ);
                 bl.scatter.Override(g.v13 ? Mathf.Clamp01(g.scatter) : 0.62f);
             }
-            if (_profile.TryGet(out ChromaticAberration cab)) cab.intensity.Override(g.v13 ? Mathf.Clamp01(g.chromAb) : 0.035f);
+            if (_profile.TryGet(out ChromaticAberration cab)) cab.intensity.Override(visual.clearImage ? 0f : g.v13 ? Mathf.Clamp01(g.chromAb) : 0.035f);
             // v13: screen-space lens flare (URP 17), added to the profile on first use
             float sslf = g.v13 ? Mathf.Max(0f, g.sslf) : 0f;
             if (sslf > 0f || _profile.Has<ScreenSpaceLensFlare>())

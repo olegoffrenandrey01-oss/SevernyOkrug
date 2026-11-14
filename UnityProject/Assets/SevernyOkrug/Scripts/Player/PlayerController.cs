@@ -251,9 +251,19 @@ namespace Severny
 
         bool CanStand()
         {
-            Vector3 p = transform.position + Vector3.up * (cc.height - cc.radius);
-            int n = Physics.SphereCastNonAlloc(p, cc.radius * 0.9f, Vector3.up, _hits, standHeight - cc.height + 0.05f, ~0, QueryTriggerInteraction.Ignore);
-            for (int i = 0; i < n; i++) if (_hits[i].collider != cc && !_hits[i].collider.transform.IsChildOf(transform)) return false;
+            return CanOccupyHeight(standHeight);
+        }
+
+        bool CanOccupyHeight(float height)
+        {
+            // A cast does not report colliders overlapping its starting sphere. Test the target capsule,
+            // inset by the controller skin so resting on the floor is permitted.
+            float radius = Mathf.Max(0.05f, cc.radius - cc.skinWidth);
+            Vector3 foot = transform.TransformPoint(cc.center) - Vector3.up * (cc.height * 0.5f);
+            var overlaps = Physics.OverlapCapsule(foot + Vector3.up * (cc.radius + 0.01f),
+                foot + Vector3.up * (height - cc.radius), radius, ~0, QueryTriggerInteraction.Ignore);
+            foreach (var col in overlaps)
+                if (col != cc && !col.transform.IsChildOf(transform)) return false;
             return true;
         }
 
@@ -265,8 +275,10 @@ namespace Severny
                 else _crouched = true;
             }
             if (_crouched && GameInput.GHeld(GKey.Sprint) && GameInput.GHeld(GKey.Forward) && health.CanSprint && CanStand()) _crouched = false;
-            _crouchT = Mathf.MoveTowards(_crouchT, _crouched ? 1f : 0f, dt * 5f);
-            float h = Mathf.Lerp(standHeight, crouchHeight, _crouchT);
+            float nextT = Mathf.MoveTowards(_crouchT, _crouched ? 1f : 0f, dt * 5f);
+            float h = Mathf.Lerp(standHeight, crouchHeight, nextT);
+            if (h > cc.height && !CanOccupyHeight(h)) { _crouched = true; h = cc.height; }
+            else _crouchT = nextT;
             cc.height = h; cc.center = new Vector3(0, h * 0.5f, 0);
             hitbox.height = h;
         }

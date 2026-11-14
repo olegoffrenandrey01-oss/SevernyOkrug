@@ -7,11 +7,14 @@ namespace Severny
 {
     public class Ballistics : MonoBehaviour
     {
+        sealed class ShotRecord { public bool hit; }
         struct Proj
         {
             public Vector3 pos, vel;
-            public float life, startSpeed, dmgMult;
+            public float life, startSpeed, dmgMult, penetration;
+            public int surfaces;
             public ItemDef ammo;
+            public ShotRecord shot;
             public Transform shooter;
             public bool fromPlayer, cracked, cosmetic;
         }
@@ -41,15 +44,32 @@ namespace Severny
         public static void Fire(Vector3 origin, Vector3 dir, ItemDef ammo, Transform shooter, bool fromPlayer, float dmgMult = 1f)
         {
             if (ammo == null) return;
-            ShotsFired++;
-            I._list.Add(new Proj { pos = origin, vel = dir.normalized * ammo.speed, startSpeed = ammo.speed, ammo = ammo, shooter = shooter, fromPlayer = fromPlayer, dmgMult = dmgMult });
+            if (fromPlayer) ShotsFired++;
+            Emit(origin, dir, ammo, shooter, fromPlayer, dmgMult, false);
         }
 
-        /// <summary>LAN: replay of a shot fired on another machine — impacts, blood and fly-by sounds only, no damage.</summary>
+        static void Emit(Vector3 origin, Vector3 dir, ItemDef ammo, Transform shooter, bool fromPlayer, float damage, bool cosmetic)
+        {
+            int pellets = Mathf.Clamp(ammo.pellets, 1, 16);
+            var shot = fromPlayer ? new ShotRecord() : null;
+            var forward = dir.normalized;
+            var right = Vector3.Cross(Mathf.Abs(forward.y) > 0.99f ? Vector3.right : Vector3.up, forward).normalized;
+            var up = Vector3.Cross(forward, right);
+            for (int i = 0; i < pellets; i++)
+            {
+                // Fixed disk pattern: LAN peers replay the same pellet directions from the existing shot message.
+                float angle = i * 2.399963f;
+                float radius = pellets == 1 ? 0f : Mathf.Sqrt((i + 0.5f) / pellets) * Mathf.Tan(ammo.pelletSpread * Mathf.Deg2Rad);
+                var d = (forward + (right * Mathf.Cos(angle) + up * Mathf.Sin(angle)) * radius).normalized;
+                I._list.Add(new Proj { pos = origin, vel = d * ammo.speed, startSpeed = ammo.speed, ammo = ammo,
+                    shooter = shooter, fromPlayer = fromPlayer, shot = shot, dmgMult = damage, penetration = ammo.penetration, cosmetic = cosmetic });
+            }
+        }
+
+        /// <summary>LAN replay: identical pellet pattern, impacts only, no damage.</summary>
         public static void FireCosmetic(Vector3 origin, Vector3 dir, ItemDef ammo, Transform shooter)
         {
-            if (ammo == null) return;
-            I._list.Add(new Proj { pos = origin, vel = dir.normalized * ammo.speed, startSpeed = ammo.speed, ammo = ammo, shooter = shooter, fromPlayer = false, cosmetic = true, dmgMult = 0f });
+            if (ammo != null) Emit(origin, dir, ammo, shooter, false, 0f, true);
         }
 
         public static void ClearAll() { if (_i != null) _i._list.Clear(); ImpactFX.Clear(); }
@@ -71,12 +91,25 @@ namespace Severny
                 {
                     Vector3 dir = seg / len;
                     int n = Physics.RaycastNonAlloc(p.pos, dir, _hits, len, ~0, QueryTriggerInteraction.Ignore);
-                    if (n > 1) System.Array.Sort(_hits, 0, n, _cmp);
+                    // NonAlloc truncation does not guarantee the nearest hits. Dense fences/props need a complete result.
+                    var hits = _hits;
+                    if (n == _hits.Length) { hits = Physics.RaycastAll(p.pos, dir, len, ~0, QueryTriggerInteraction.Ignore); n = hits.Length; }
+                    if (n > 1) System.Array.Sort(hits, 0, n, _cmp);
                     for (int k = 0; k < n; k++)
                     {
-                        var h = _hits[k];
+                        var h = hits[k];
                         if (p.shooter != null && h.collider.transform.IsChildOf(p.shooter)) continue;
                         ProcessHit(ref p, h, dir);
+                        var surface = h.collider.GetComponent<BulletSurface>();
+                        bool body = h.collider.GetComponentInParent<Hitbox>() != null;
+                        float budget = p.penetration * Mathf.Clamp01(p.vel.magnitude / Mathf.Max(1f, p.startSpeed));
+                        if (!body && p.surfaces < 4 && surface != null && surface.TryCross(h.collider, h, dir, budget, out float cost))
+                        {
+                            p.penetration = Mathf.Max(0f, p.penetration - cost);
+                            p.dmgMult *= Mathf.Clamp(surface.damageRetention, 0.05f, 1f) * Mathf.Clamp01(1f - cost / Mathf.Max(1f, budget) * 0.5f);
+                            p.surfaces++;
+                            continue; // Keep checking this segment: a target may be inside a hollow crate.
+                        }
                         done = true;
                         break;
                     }
@@ -122,10 +155,10 @@ namespace Severny
                 float dmg = p.ammo.damage * p.dmgMult * Mathf.Lerp(0.55f, 1f, speedFrac);
                 hb.owner.ApplyDamage(new DamageInfo
                 {
-                    part = part, damage = dmg, penetration = p.ammo.penetration * Mathf.Lerp(0.6f, 1f, speedFrac),
+                    part = part, damage = dmg, penetration = p.penetration * Mathf.Lerp(0.6f, 1f, speedFrac),
                     point = h.point, dir = dir, attacker = p.shooter != null ? p.shooter.gameObject : null, bullet = true, cause = "bullet"
                 });
-                if (p.fromPlayer) Hits++;
+                if (p.fromPlayer && p.shot != null && !p.shot.hit) { p.shot.hit = true; Hits++; }
                 // the player's own hits are voiced in PlayerController (2D); others as 3D sounds at the hit point
                 if (!hb.owner.isPlayer)
                     SFX.PlayAt(hb.owner.LastHitArmored ? SFX.Pick(SFX.ArmorHits, SFX.Thud) : SFX.Pick(SFX.FleshHits, SFX.Hit), h.point, 0.8f, 2f, 60f, 0.1f);
